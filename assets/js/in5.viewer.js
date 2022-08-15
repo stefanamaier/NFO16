@@ -22,8 +22,8 @@ $(function(){
 		in5:{title:'Built with in5', enabled:viewOpts.footer, action:function(e){ window.open($('#in5footer a').attr('href'),'_blank'); },html:'<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 48 47.8"><defs><style>.cls-1{fill:#e34f26;}</style></defs><path d="M0 0l4.4 43L24 48l19.6-5L48 0zm8.4 11.4l7-3.3v6.4l-7 3.3zm30 5.7v12l-6 5.5V17a1.7 1.7 0 0 1 0-.2 3 3 0 0 0-.7-2c-.6-.6-1.5-.7-3-.7-1.3 0-2.3.4-3 1a3 3 0 0 0-.5 2h.2v9c0 .4-.2.5-.2.5a8 8 0 0 1-8 7.6 8 8 0 0 1-7.2-4 11 11 0 0 1-1.4-3.6s-.2 0-.2-.2V21l7-3.2V26a1.8 1.8 0 0 0 .3.8c0 .2.3.6 1.3.6s1-.3 1.2-.6a2 2 0 0 0 .2-1V17a10.5 10.5 0 0 1 2.7-7 10.3 10.3 0 0 1 8-3 9.4 9.4 0 0 1 7.5 3c2.5 2.7 2.2 6.2 2.2 7z"/></svg>',init:function(){ $('#in5footer').hide(); } }
 	};
 
-	var $vbar = $('<div id="viewer-options-bar" aria-role="toolbar"><span id="viewer-title"><span id="viewer-logo"></span></span><span id="viewer-pagecount"></span><span id="viewer-options"></span></div>').css('background-color',viewOpts.bg).addClass(getContrast(viewOpts.bg));
-	var $vwrap = $('<footer id="viewer-options-wrap" class="collapsed" aria-role="group">');
+	var $vbar = $('<div id="viewer-options-bar"><span id="viewer-title"><span id="viewer-logo"></span></span><span id="viewer-pagecount"></span><span id="viewer-options"></span></div>').css('background-color',viewOpts.bg).addClass(getContrast(viewOpts.bg));
+	var $vwrap = $('<footer id="viewer-options-wrap" class="collapsed" aria-role="toolbar">');
 	var $vthumbs = $('<div id="viewer-options-thumb-images"></div>');
 	var $vthumbwrap = $('<div id="viewer-thumb-wrap"></div>').append($vthumbs);
 	var th=1, tlen=icons.thumbs.enabled?nav.numPages:0, $titem;
@@ -140,30 +140,30 @@ function zoom(dir){
 		newScale, currentScale, scaleChange, removeZoomClass;
 	switch(dir){
 		case 'in':
-		$body.addClass('zoomed').redraw();
-		var maxScale = 10;
-		currentScale = parseFloat(getCurrentScale(scaleTarg[0],!0));
-		newScale = currentScale + (currentScale > .9 ? 1 : currentScale);
-		if(newScale > maxScale) newScale = maxScale;
-		if(scaled) {window.scaleLayoutFunc(!1,newScale);}
-		else if(flip){window.scaleFlipLayout(!1,newScale);}
-		else {scaleTarg.css(prefix.css+'transform','scale('+newScale+','+newScale+')').css(prefix.css+'transform-origin', '50% 50% 0')}
-		break;
-	case 'out':
-		$body.removeClass('zoomed');/*dims w/o scrollbars*/
-		minScale = scaled ? window.scaleLayoutFunc(!0) : 1;
-		currentScale = parseFloat(getCurrentScale(scaleTarg[0],!0));
-		newScale = currentScale - 1;
-		if(newScale < minScale+.1) {
-			newScale = minScale;
-			removeZoomClass = !0;
-			/*removeDrag();*/
-		}
-		if(!removeZoomClass) $body.addClass('zoomed');
-		if(scaled) {window.scaleLayoutFunc(!1,newScale);}
-		else if(flip){window.scaleFlipLayout(!1);}
-		else {scaleTarg.css(prefix.css+'transform', 'scale('+newScale+','+newScale+')').css(prefix.css+'transform-origin', '50% 50% 0').css(prefix.css+'transition', 'none');} 
-		break;
+			$body.addClass('zoomed').redraw();
+			var maxScale = 10;
+			currentScale = parseFloat(getCurrentScale(scaleTarg[0],!0));
+			newScale = currentScale + (currentScale > .9 ? 1 : currentScale);
+			if(newScale > maxScale) newScale = maxScale;
+			if(scaled) {window.scaleLayoutFunc(!1,newScale);}
+			else if(flip){window.scaleFlipLayout(!1,newScale);}
+			else {scaleTarg.css(prefix.css+'transform','scale('+newScale+','+newScale+')').css(prefix.css+'transform-origin', '0 0 0');}
+			break;
+		case 'out':
+			$body.removeClass('zoomed');/*dims w/o scrollbars*/
+			minScale = scaled ? window.scaleLayoutFunc(!0) : 1;
+			currentScale = parseFloat(getCurrentScale(scaleTarg[0],!0));
+			newScale = currentScale - 1;
+			if(newScale < minScale+.1) {
+				newScale = minScale;
+				removeZoomClass = !0;
+				/*removeDrag();*/
+			}
+			if(!removeZoomClass) $body.addClass('zoomed');
+			if(scaled) {window.scaleLayoutFunc(!1,newScale);}
+			else if(flip){window.scaleFlipLayout(!1);}
+			else {scaleTarg.css(prefix.css+'transform', 'scale('+newScale+','+newScale+')').css(prefix.css+'transform-origin', '0 0 0');}
+			break;
 		default: return !1;
 	}
 	scaleChange = (newScale/currentScale);
