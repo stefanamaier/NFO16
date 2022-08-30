@@ -445,7 +445,7 @@ body, #container-wrap { background:#000; }
 #slider { width:1920px; height:1080px; }
 .page-scale-wrap { width:1920px; height:1080px; background: #fff !important; }
 .paper-vertical { width:1920px; height:100%; }
-.paper-horizontal { width:57900px; height:1092px; }
+.paper-horizontal { width:59830px; height:1092px; }
 nav#page-nav { display:none; }
 html.nav-transition nav#page-nav { opacity:.3; pointer-events:none; }
 nav#page-nav > button {
@@ -666,15 +666,15 @@ html[data-dir="rtl"] #viewer-thumb-wrap { direction:rtl; }
 	top:106px !important;
 }
 
-@keyframes custom-50795 {
+@keyframes custom-57160 {
 	0% {transform:translate(0px,0px);}
 	100% {transform:translate(-360px,0px);}
 }
-@-webkit-keyframes custom-50795 {
+@-webkit-keyframes custom-57160 {
 	0% {-webkit-transform:translate(0px,0px);}
 	100% {-webkit-transform:translate(-360px,0px);}
 }
-#item50618 {
+#item56983 {
 	width:360px !important;
 	height:1080px !important;
 	box-shadow:-4px 0px 4px 0px rgba(0,0,0,0.33);
@@ -683,49 +683,49 @@ html[data-dir="rtl"] #viewer-thumb-wrap { direction:rtl; }
 	outline:solid 1px #4c4c4c;
 }
 
-#item50645 {
+#item57010 {
 	width:360px !important;
 	height:48px !important;
 	top:320px !important;
 }
 
-#item50674 {
+#item57039 {
 	width:360px !important;
 	height:48px !important;
 	top:268px !important;
 }
 
-#item50703 {
+#item57068 {
 	width:360px !important;
 	height:48px !important;
 	top:216px !important;
 }
 
-#item50732 {
+#item57097 {
 	width:360px !important;
 	height:48px !important;
 	top:164px !important;
 }
 
-#item50761 {
+#item57126 {
 	width:360px !important;
 	height:48px !important;
 	top:112px !important;
 }
 
-#item50790 {
+#item57155 {
 	width:360px !important;
 	height:48px !important;
 	top:60px !important;
 }
 
-#item50617 {
+#item56982 {
 	width:60px !important;
 	height:60px !important;
 	top:50px !important;
 }
 
-#item50611 {
+#item56976 {
 	width:60px !important;
 	height:60px !important;
 	top:50px !important;
@@ -754,7 +754,7 @@ html[data-dir="rtl"] #viewer-thumb-wrap { direction:rtl; }
 
 #item936 {
 	width:1103px !important;
-	height:211px !important;
+	height:236px !important;
 	left:408px !important;
 	top:789px !important;
 }
